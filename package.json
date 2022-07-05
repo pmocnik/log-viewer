@@ -4,6 +4,7 @@
   "description": "Collect and view logs.",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon --ignore ./log-viewer-gui/ ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.2"
