@@ -15,11 +15,20 @@ const login = async (username, password) => {
     params.append('password', password);
 
     const response = await fetch("http://localhost:3000/api/login", {
+        // mode: "no-cors",
         method: "POST",
         headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+        credentials: 'include',
         body: params
     })
 
+    console.log(response);
+
+    const res = await fetch("http://localhost:3000/api/data", {
+        // mode: "no-cors",
+        // credentials: 'include',
+    });
+    
 
 }
 
