@@ -14,5 +14,6 @@ Missing .env to switch between dev and production environment.
 docker-compose up -d
 Run addAdminUser.ps1
 
+Login info:
 username: admin
 password: Admin123456!
