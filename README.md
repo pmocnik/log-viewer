@@ -10,7 +10,9 @@ Add fuzzy search for log message.
 Socket.IO for auto refresh log data on new log message received.
 Missing .env to switch between dev and production environment.
 
-##
+## Run project
+docker-compose up -d
+Run addAdminUser.ps1
 
 username: admin
 password: Admin123456!
