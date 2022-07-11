@@ -9,6 +9,7 @@ const addProject = async (project) => {
     const newProject = new Project(project);
     try {
         await newProject.save();
+        return newProject._id;
     } catch (err) {
         if (err.name === 'MongoServerError' && err.code === 11000) {
             console.log('There was a duplicate key error');
@@ -33,4 +34,8 @@ const getProject = async (projectShortName) => {
     return await Project.findOne({ short_name: projectShortName });
 }
 
-module.exports = { getProject, addProject, deleteProject }
+const getProjects = async () => {
+    return await Project.find();
+}
+
+module.exports = { getProject, getProjects, addProject, deleteProject }

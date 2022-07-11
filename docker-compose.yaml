@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  mongo:
+      container_name: mongo
+      image: mongo
+      restart: on-failure:10
+      volumes:
+        - ./data:/data/db
+        - ./addAdminUser.js:/data/addAdminUser.js
+      ports:
+        - "27117:27017"
+  app:
+    container_name: express_aplication_server
+    image: node:latest
+    volumes:
+      - .:/home/node/project
+      - /home/node/project/node_modules
+      - /home/node/project/log-viewer-gui/node_modules
+      - /home/node/project/log-viewer-gui/build
+    working_dir: /home/node/project
+    command: bash -c "npm i && cd ./log-viewer-gui && npm i && npm run build && cd .. && node app.js"
+    depends_on:
+      - mongo
+    ports:
+      - 8080:3000

@@ -1,0 +1,1 @@
+  docker exec -it mongo mongosh --file /data/addAdminUser.js

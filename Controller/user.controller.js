@@ -1,12 +1,26 @@
-const { addUser, editUser, deleteUser } = require("../Db/user");
+const { addUser, editUser, deleteUser, getUserById } = require("../Db/user");
+const { validationResult } = require('express-validator');
+
+const getUserController = async (req, res) => {
+    try {
+        res.status(200).send(await getUserById(req.session.userId));
+    } catch (err) {
+        res.status(202).json(err);
+    }
+}
 
 const addUserController = async (req, res) => {
-    //TO-DO validate user.
+
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(202).json({ errors: errors.array() });
+    }
+
     let user = await req.body;
 
     try {
-        await addUser(user);
-        res.status(200).send();
+        res.status(200).send(await addUser(user));
 
     } catch (err) {
         res.status(202).json(err);
@@ -14,6 +28,12 @@ const addUserController = async (req, res) => {
 }
 
 const editUserController = async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(202).json({ errors: errors.array() });
+    }
+
     let user = await req.body;
     try {
         await editUser(user);
@@ -35,4 +55,4 @@ const deleteUserController = async (req, res) => {
     }
 }
 
-module.exports = { addUserController, editUserController, deleteUserController };
+module.exports = { getUserController, addUserController, editUserController, deleteUserController };

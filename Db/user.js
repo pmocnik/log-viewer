@@ -7,8 +7,10 @@ mongoose.connect(config.mongooseConnect);
 const addUser = async (user) => {
 
     const newUser = new User(user);
+    console.log(newUser);
     try {
         await newUser.save();
+        return newUser._id;
     } catch (err) {
         if (err.name === 'MongoServerError' && err.code === 11000) {
             console.log('There was a duplicate key error');

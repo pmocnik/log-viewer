@@ -1,12 +1,17 @@
-const { addProject, deleteProject } = require("../Db/project");
+const { addProject, deleteProject, getProjects } = require("../Db/project");
+const { validationResult } = require('express-validator');
 
 const addProjectController = async (req, res) => {
-    //TO-DO validate user.
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(202).json({ errors: errors.array() });
+    }
+
     let project = await req.body;
 
     try {
-        await addProject(project);
-        res.status(200).send();
+        res.status(200).send(await addProject(project));
     } catch (err) {
         res.status(202).json(err);
     }
@@ -24,4 +29,12 @@ const deleteProjectController = async (req, res) => {
     }
 }
 
-module.exports = { addProjectController, deleteProjectController }
+const getProjectsController = async (req, res) => {
+    try {
+        res.status(200).send(await getProjects());
+    } catch (err) {
+        res.status(202).json(err);
+    }
+}
+
+module.exports = { addProjectController, deleteProjectController, getProjectsController }
