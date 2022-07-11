@@ -1,5 +1,57 @@
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: rgb(244, 250, 249);
+.header {
+  color: white;
+  // background-color: #1565c0;
+  height: 60px;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  .white_background {
+    background-color: white;
+    display: flex;
+  }
+  .header_right {
+    display: flex;
+    justify-content: flex-end;
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 600;
+
+    .user_data {
+      line-height: 60px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.statistics {
+  height: 30px;
+  line-height: 30px;
+  background-color: #1565c0;
+  color: white;
+}
+
+.log_data {
+  display: grid;
+  grid-template-columns: 130px 220px 100px auto;
+  grid-template-rows: minmax(25px, 100%);
+  &.data_header {
+    background-color: rgb(218, 218, 218);
+    margin-top: 0cm;
+  }
+
+  .firstColumn {
+    margin-left: 5px;
+  }
+
+  .clickable {
+    cursor: pointer;
+    display: flex;
+  }
+}
+
+.marginTop{
+  margin-top: 10px;
+}
+
+.error {
+  color: rgb(161, 0, 0);
 }
