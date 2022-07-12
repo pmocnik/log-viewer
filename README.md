@@ -11,11 +11,11 @@ Collect and view logs.
 - Missing .env to switch between dev and production environment.
 
 ## Run project
-docker-compose up -d
-Run ./mongoDb/addAdminUser.ps1
+docker-compose up -d <br />
+Run ./mongoDb/addAdminUser.ps1 <br />
 
-Login info:
-username: admin
+Login info: <br />
+username: admin <br />
 password: Admin123456!
 
 ## Add log:
