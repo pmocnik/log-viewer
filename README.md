@@ -19,12 +19,12 @@ username: admin
 password: Admin123456!
 
 ## Add log:
-POST method: /api/addLog
-body: 
-{
-  "timestamp": "2022-06-16 12:50:23.9724",
-  "message": "Log message",
-  "severity_level": "debug",  - one of: "emerg", "alert", "crit", "err", "warning", "notice", "info", "debug"
-  "source": "Collector",  - collecting method - system, file, etc.
-  "project_short_name": "PROJ1" - Project needs to be in DB
+POST method: /api/addLog <br />
+body:  <br />
+{ <br />
+  "timestamp": "2022-06-16 12:50:23.9724", <br />
+  "message": "Log message", <br />
+  "severity_level": "debug",  - one of: "emerg", "alert", "crit", "err", "warning", "notice", "info", "debug" <br />
+  "source": "Collector",  - collecting method - system, file, etc. <br />
+  "project_short_name": "PROJ1" - Project needs to be in DB <br />
 }
