@@ -72,7 +72,7 @@ api.delete('/deleteProject', verifyToken, checkRole(["Admin", "User"]), (req, re
 })
 
 //Log
-api.put('/addLog', verifyToken, checkRole(["Admin", "User", "System"]), logValidate.addLog(), (req, res) => {
+api.post('/addLog', verifyToken, checkRole(["Admin", "User", "System"]), logValidate.addLog(), (req, res) => {
     console.log("/addLog");
     addLogController(req, res);
 })
@@ -92,18 +92,4 @@ api.get('/downloadCsv', verifyToken, checkRole(["Admin", "User"]), (req, res) =>
     downloadLogsController(req, res);
 })
 
-
-// api.get('/addUser', (req, res) => {
-//     addUser();
-//     res.send('addUser');
-// })
-
-// api.get('/getUser', (req, res) => {
-//     getUser();
-//     res.send('getUser');
-// })
-
-// api.get('/data', verifyToken, checkRole(["Admin", "User"]), (req, res) => {
-//     res.send('test middleware');
-// })
 module.exports = api; 
