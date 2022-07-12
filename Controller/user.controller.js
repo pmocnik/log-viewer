@@ -11,7 +11,6 @@ const getUserController = async (req, res) => {
 
 const addUserController = async (req, res) => {
 
-
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(202).json({ errors: errors.array() });

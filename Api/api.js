@@ -13,14 +13,8 @@ const projectValidate = require('../Validators/project.validator');
 const logValidate = require('../Validators/log.validator');
 const api = express();
 
-
 api.use(express.json());
 api.use(express.urlencoded({ extended: false }));
-
-// api.use(function logErrors(err, req, res, next) {
-//     console.error(err.stack)
-//     next(err)
-// })
 
 api.use(cookieSession({
     name: "my-session",
