@@ -61,7 +61,7 @@ export default function AddUser({ openAddUserDialog, closeAddUserDialog }) {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Add project"}
+                    {"Add user"}
                 </DialogTitle>
                 <DialogContent>
                     <Box component="form" id="test-form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

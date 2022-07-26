@@ -24,14 +24,13 @@ const login = async (username, password, cbE, cb) => {
         return;
     }
 
-    cb(true, await response.json());
+    cb(await response.json());
 }
 
 //Component from Material UI
 
 export default function SignIn(props) {
     let setSession = props.setSession;
-    let setUserCookie = props.setUserCookie;
     const [error, setError] = React.useState(false);
 
     const handleSubmit = async (event) => {
@@ -39,7 +38,7 @@ export default function SignIn(props) {
         const data = new FormData(event.currentTarget);
         let username = data.get('username');
         let password = data.get('password');
-        login(username, password, () => setError(true), (setS, setU) => { setSession(setS); setUserCookie(setU); });
+        login(username, password, () => setError(true), (setS) => { setSession(setS) });
     };
 
     const showError = () => {
